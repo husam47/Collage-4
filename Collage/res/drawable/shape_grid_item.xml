@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <stroke
+        android:width="@dimen/grid_item_stroke"
+        android:color="@color/text_color_white" />
+<corners />
+    <solid android:color="@color/headder_text_fill" />
+
+</shape>

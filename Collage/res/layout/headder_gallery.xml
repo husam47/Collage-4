@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_gallery_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiant_header"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <!-- HEADDER -->
+
+    <ImageView
+        android:id="@+id/headder_gallery_imageView_back"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.12"
+        android:padding="10dp"
+        android:src="@drawable/selector_button_back" />
+
+    <ImageView
+        android:id="@+id/headder_gallery_imageView_appIcon"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.12"
+        android:padding="10dp"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/headder_gallery_textView_albumName"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/header_text_stroke"
+        android:layout_marginTop="@dimen/header_text_stroke"
+        android:layout_weight="0.52"
+        android:background="@drawable/shape_header_text"
+        android:gravity="center"
+        android:paddingLeft="@dimen/header_text_stroke"
+        android:paddingRight="@dimen/header_text_stroke"
+        android:text="MKR"
+        android:textColor="@color/text_color_white"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/headder_gallery_imageView_delete"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.12"
+        android:padding="10dp"
+        android:src="@drawable/selector_button_delete" />
+
+    <ImageView
+        android:id="@+id/headder_gallery_imageView_next"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.12"
+        android:padding="10dp"
+        android:src="@drawable/selector_button_next" />
+
+</LinearLayout>

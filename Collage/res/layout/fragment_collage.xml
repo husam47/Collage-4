@@ -1,0 +1,331 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_collage_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!-- COLLAGE LAYOUT -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <com.adroitstudio.photocollage.view.custom_view.collage.CollageBackgroundView
+                    android:id="@+id/fragment_collage_collage_view_group_background"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:background="#000000" />
+
+                <com.adroitstudio.photocollage.view.custom_view.collage.CollageViewGroup
+                    android:id="@+id/fragment_collage_collage_view_group"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:background="@android:color/transparent" />
+            </FrameLayout>
+        </RelativeLayout>
+
+        <com.adroitstudio.photocollage.view.custom_view.CustomFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <!-- TWO WAY LIST VIEW -->
+
+            <com.adroitstudio.photocollage.lib.TwoWayGridView
+                android:id="@+id/fragment_collage_gridView_selecete_pic"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:fadingEdge="none"
+                android:scrollbars="none"
+                app:scrollDirectionLandscape="horizontal"
+                app:scrollDirectionPortrait="horizontal" />
+
+            <!-- SEEK BAR -->
+
+            <LinearLayout
+                android:id="@+id/fragment_collage_layout_option_seek"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#00FFFFFF"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <View
+                    android:id="@+id/fragment_collage_spaceView_1"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="0.02" />
+
+                <LinearLayout
+                    android:id="@+id/fragment_collage_seekBar_1_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.48"
+                    android:orientation="vertical" >
+
+                    <SeekBar
+                        android:id="@+id/fragment_collage_seekBar_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.adroitstudio.photocollage.view.custom_view.CustomLinkTextView
+                        android:id="@+id/fragment_collage_seekBar_1_textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="THE-MKR"
+                        android:textColor="@color/text_color_white"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/fragment_collage_spaceView_2"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="0.02" />
+
+                <LinearLayout
+                    android:id="@+id/fragment_collage_seekBar_2_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.48"
+                    android:orientation="vertical" >
+
+                    <SeekBar
+                        android:id="@+id/fragment_collage_seekBar_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.adroitstudio.photocollage.view.custom_view.CustomLinkTextView
+                        android:id="@+id/fragment_collage_seekBar_2_textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="THE-MKR"
+                        android:textColor="@color/text_color_white"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/fragment_collage_spaceView_3"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="0.02" />
+            </LinearLayout>
+
+            <!-- PATH COLOR EFFECT -->
+
+        </com.adroitstudio.photocollage.view.custom_view.CustomFrameLayout>
+
+        <HorizontalScrollView
+            android:id="@+id/fragment_collage_horizontal_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradiant_header"
+            android:fadingEdge="none"
+            android:scrollbars="none" >
+
+            <FrameLayout
+                android:id="@+id/fragment_collage_frameLayout_option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <!-- OPTION ALL -->
+
+                <LinearLayout
+                    android:id="@+id/fragment_collage_layout_option_all"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/fragment_collage_imageView_all_layout"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/selector_option_layout" />
+
+                    <ImageView
+                        android:id="@+id/fragment_collage_imageView_all_layout_ratio"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/selector_option_layout_ratio" />
+
+                    <ImageView
+                        android:id="@+id/fragment_collage_imageView_all_filter"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/selector_option_filter" />
+
+                    <ImageView
+                        android:id="@+id/fragment_collage_imageView_all_background"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/selector_option_backgrounds" />
+
+                    <ImageView
+                        android:id="@+id/fragment_collage_imageView_all_frame_background"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/selector_option_backgrounds_frame" />
+
+                    <ImageView
+                        android:id="@+id/fragment_collage_imageView_all_border"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/selector_option_border" />
+
+                    <ImageView
+                        android:id="@+id/fragment_collage_imageView_all_sticker"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/selector_option_sticker" />
+
+                    <ImageView
+                        android:id="@+id/fragment_collage_imageView_all_frame_add_new"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/selector_option_add" />
+                </LinearLayout>
+
+                <!-- OPTION SINGLE -->
+
+                <LinearLayout
+                    android:id="@+id/fragment_collage_layout_option_singal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/fragment_collage_imageView_single_back"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/selector_option_back" />
+
+                    <ImageView
+                        android:id="@+id/fragment_collage_imageView_single_swap"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/selector_option_swap" />
+
+                    <ImageView
+                        android:id="@+id/fragment_collage_imageView_single_filter"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/selector_option_filter" />
+
+                    <ImageView
+                        android:id="@+id/fragment_collage_imageView_single_clip"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/selector_option_clip" />
+
+                    <ImageView
+                        android:id="@+id/fragment_collage_imageView_single_delete"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/selector_option_delete" />
+
+                    <ImageView
+                        android:id="@+id/fragment_collage_imageView_single_flip_horizontal"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/selector_option_flip_h" />
+
+                    <ImageView
+                        android:id="@+id/fragment_collage_imageView_single_flip_vertical"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/selector_option_flip_v" />
+
+                    <ImageView
+                        android:id="@+id/fragment_collage_imageView_single_lockView"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter" />
+                </LinearLayout>
+            </FrameLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <!-- CLIP LAYOUT -->
+
+    <LinearLayout
+        android:id="@+id/fragment_collage_dialog_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_header_text"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/header_text_stroke" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_weight="0.1" />
+
+        <com.adroitstudio.photocollage.view.custom_view.ClipViewGroup
+            android:id="@+id/fragment_collage_dialog_clip_clipViewGroup"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_weight="0.1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <com.adroitstudio.photocollage.lib.TwoWayGridView
+                android:id="@+id/fragment_collage_dialog_clip_twoWayGridView"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                app:scrollDirectionLandscape="horizontal"
+                app:scrollDirectionPortrait="horizontal" />
+
+            <ImageView
+                android:id="@+id/fragment_collage_dialog_clip_done"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="@color/headder_end"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/selector_button_next" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

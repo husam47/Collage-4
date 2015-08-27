@@ -1,0 +1,14 @@
+<resources>
+
+    <color name="text_color_white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="headder_start">#974444</color>
+    <color name="headder_end">#c86363</color>
+    <color name="headder_text_stroke">#9e4848</color>
+    <color name="headder_text_fill">#220714</color>
+    <color name="text_background_gallery">#bf5f5f</color>
+    <color name="horizontal_list_bg">#2f1e1f</color>
+    <color name="collage_option_background_focus">#30b0a4</color>
+    <color name="collage_option_background_nfocus">#222222</color>
+
+</resources>

@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_shapes_thumb_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="MergeRootFrame" >
+
+
+    <GridView
+        android:id="@+id/fragment_shapes_thumb_gridView_album"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@android:color/transparent"
+        android:fadingEdge="none"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="4"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:scrollbars="none"
+        android:verticalSpacing="10dp" />
+
+</LinearLayout>
