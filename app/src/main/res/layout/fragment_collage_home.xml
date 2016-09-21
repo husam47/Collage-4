@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/fragment_collage_home_outer"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/fragment_collage_home_image_view_app_pic"
+        style="@style/fragment_collage_home_pic"/>
+
+
+    <View
+        style="@style/fragment_collage_home_vertical_filer"/>
+
+    <LinearLayout
+        style="@style/fragment_collage_home_layout_option_outer">
+
+        <View
+            style="@style/fragment_collage_home_horizontal_filer"/>
+
+        <com.themkrworld.collage.ui.custom.ClickLinearLayout
+            android:id="@+id/fragment_collage_home_layout_option_grid_style"
+            style="@style/fragment_collage_home_layout_option_inner"
+            android:orientation="vertical">
+
+            <ImageView
+                style="@style/fragment_collage_home_image_view_option"
+                android:src="@drawable/collage_type_grid"/>
+
+            <TextView
+                style="@style/fragment_collage_home_text_view_option"
+                android:text="Grid-Style"/>
+
+        </com.themkrworld.collage.ui.custom.ClickLinearLayout>
+
+        <View
+            style="@style/fragment_collage_home_horizontal_filer"/>
+
+        <com.themkrworld.collage.ui.custom.ClickLinearLayout
+            android:id="@+id/fragment_collage_home_layout_option_free_style"
+            style="@style/fragment_collage_home_layout_option_inner"
+            android:orientation="vertical">
+
+            <ImageView
+                style="@style/fragment_collage_home_image_view_option"
+                android:src="@drawable/collage_type_free_style"/>
+
+            <TextView
+                style="@style/fragment_collage_home_text_view_option"
+                android:text="Free-Style"/>
+        </com.themkrworld.collage.ui.custom.ClickLinearLayout>
+
+        <View
+            style="@style/fragment_collage_home_horizontal_filer"/>
+    </LinearLayout>
+
+    <View
+        style="@style/fragment_collage_home_vertical_filer"/>
+
+    <LinearLayout
+        style="@style/fragment_collage_home_layout_option_outer">
+
+        <View
+            style="@style/fragment_collage_home_horizontal_filer"/>
+
+        <com.themkrworld.collage.ui.custom.ClickLinearLayout
+            android:id="@+id/fragment_collage_home_layout_option_shape_style"
+            style="@style/fragment_collage_home_layout_option_inner"
+            android:orientation="vertical">
+
+            <ImageView
+                style="@style/fragment_collage_home_image_view_option"
+                android:src="@drawable/collage_type_shape"/>
+
+            <TextView
+                style="@style/fragment_collage_home_text_view_option"
+                android:text="Shape-Style"/>
+        </com.themkrworld.collage.ui.custom.ClickLinearLayout>
+
+        <View
+            style="@style/fragment_collage_home_horizontal_filer"/>
+
+        <com.themkrworld.collage.ui.custom.ClickLinearLayout
+            android:id="@+id/fragment_collage_home_layout_option_frame_style"
+            style="@style/fragment_collage_home_layout_option_inner"
+            android:orientation="vertical">
+
+            <ImageView
+                style="@style/fragment_collage_home_image_view_option"
+                android:src="@drawable/collage_type_frame"/>
+
+            <TextView
+                style="@style/fragment_collage_home_text_view_option"
+                android:text="Frame-Style"/>
+        </com.themkrworld.collage.ui.custom.ClickLinearLayout>
+
+        <View
+            style="@style/fragment_collage_home_horizontal_filer"/>
+    </LinearLayout>
+
+    <View
+        style="@style/fragment_collage_home_vertical_filer"/>
+</LinearLayout>

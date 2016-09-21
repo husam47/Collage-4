@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/fragment_collage_ist_outer"
+    android:orientation="vertical">
+
+    <GridView
+        android:id="@+id/fragment_collage_list_gridView"
+        style="@style/fragment_collage_ist_grid_view"/>
+
+    <TextView
+        android:id="@+id/fragment_collage_list_textView"
+        style="@style/fragment_collage_list_text_view"
+        android:text="Select a Grid to create collage"/>
+
+</LinearLayout>

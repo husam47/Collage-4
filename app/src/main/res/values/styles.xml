@@ -1,0 +1,254 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="@android:style/Theme.Light.NoTitleBar"/>
+
+
+    <!-- ================================================================================== -->
+    <!-- FRAGMENT COLLAGE LIST======================================================== -->
+    <!-- ================================================================================== -->
+    <style name="fragment_collage_ist_outer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="fragment_collage_ist_grid_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:numColumns">4</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+    </style>
+
+
+    <style name="fragment_collage_list_text_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/app_name</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/fragment_collage_list_hor_text_view_size</item>
+        <item name="android:paddingLeft">@dimen/fragment_collage_list_hor_text_view_padding_hor</item>
+        <item name="android:paddingTop">@dimen/fragment_collage_list_hor_text_view_padding_ver</item>
+        <item name="android:paddingRight">@dimen/fragment_collage_list_hor_text_view_padding_hor</item>
+        <item name="android:paddingBottom">@dimen/fragment_collage_list_hor_text_view_padding_ver</item>
+        <item name="android:background">@color/fragment_collage_list_text_back</item>
+    </style>
+
+    <!-- ================================================================================== -->
+    <!-- FRAGMENT COLLAGE HOME ============================================================ -->
+    <!-- ================================================================================== -->
+
+    <style name="fragment_collage_home_outer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="fragment_collage_home_pic">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/fragment_collage_gallery_image_view_app_icon_dim</item>
+        <item name="android:layout_marginTop">@dimen/fragment_collage_gallery_image_view_app_icon_margin_top</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:src">@drawable/app_icon</item>
+    </style>
+
+    <style name="fragment_collage_home_layout_option_outer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/fragment_collage_gallery_layout_option_height</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="fragment_collage_home_layout_option_inner">
+        <item name="android:layout_width">@dimen/fragment_collage_gallery_layout_option_width</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="fragment_collage_home_image_view_option">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">@dimen/fragment_collage_gallery_image_view_option_padding</item>
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="fragment_collage_home_text_view_option">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/fragment_collage_gallery_text_view_option_size</item>
+
+    </style>
+
+    <style name="fragment_collage_home_vertical_filer">
+        <item name="android:layout_width">1px</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="fragment_collage_home_horizontal_filer">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <!-- ================================================================================== -->
+    <!-- DIALOG COLLAGE GALLERY ========================================================== -->
+    <!-- ================================================================================== -->
+
+    <style name="dialog_collage_gallery_outer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/background</item>
+    </style>
+
+    <style name="dialog_collage_gallery_grid_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:numColumns">4</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+    </style>
+
+    <style name="dialog_collage_gallery_hor_list_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dialog_collage_gallery_hor_list_view_height</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+    </style>
+
+    <style name="dialog_collage_gallery_text_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">right</item>
+        <item name="android:text">@string/app_name</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/dialog_collage_gallery_hor_text_view_size</item>
+        <item name="android:paddingLeft">@dimen/dialog_collage_gallery_hor_text_view_padding_hor</item>
+        <item name="android:paddingTop">@dimen/dialog_collage_gallery_hor_text_view_padding_ver</item>
+        <item name="android:paddingRight">@dimen/dialog_collage_gallery_hor_text_view_padding_hor</item>
+        <item name="android:paddingBottom">@dimen/dialog_collage_gallery_hor_text_view_padding_ver</item>
+        <item name="android:background">@color/dialog_collage_gallery_text_back</item>
+    </style>
+
+    <!-- ================================================================================== -->
+    <!-- ADAPTER COLLAGE GALLERY ========================================================== -->
+    <!-- ================================================================================== -->
+    <style name="adapter_collage_gallery_outer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:padding">@dimen/adapter_collage_gallery_outer_spacing</item>
+    </style>
+
+    <style name="adapter_collage_gallery_image_view_thumb">
+        <item name="android:layout_width">@dimen/adapter_collage_gallery_image_pic_dim</item>
+        <item name="android:layout_height">@dimen/adapter_collage_gallery_image_pic_dim</item>
+    </style>
+
+    <style name="adapter_collage_gallery_view_cover">
+        <item name="android:layout_width">@dimen/adapter_collage_gallery_image_pic_dim</item>
+        <item name="android:layout_height">@dimen/adapter_collage_gallery_image_pic_dim</item>
+        <item name="android:background">@drawable/pic_bg</item>
+    </style>
+
+    <style name="adapter_collage_gallery_text_view_album_name">
+        <item name="android:layout_width">@dimen/adapter_collage_gallery_image_pic_dim</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textSize">@dimen/adapter_collage_gallery_text_size</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+
+    <!-- ================================================================================== -->
+    <!-- ADAPTER COLLAGE ALBUM ========================================================== -->
+    <!-- ================================================================================== -->
+
+    <style name="adapter_collage_album_outer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:padding">@dimen/adapter_collage_album_outer_spacing</item>
+    </style>
+
+    <style name="adapter_collage_album_image_view_thumb">
+        <item name="android:layout_width">@dimen/adapter_collage_album_image_pic_dim</item>
+        <item name="android:layout_height">@dimen/adapter_collage_album_image_pic_dim</item>
+    </style>
+
+    <style name="adapter_collage_album_view_cover">
+        <item name="android:layout_width">@dimen/adapter_collage_album_image_pic_dim</item>
+        <item name="android:layout_height">@dimen/adapter_collage_album_image_pic_dim</item>
+        <item name="android:background">@drawable/pic_bg</item>
+    </style>
+
+    <!-- ================================================================================== -->
+    <!-- ADAPTER COLLAGE GALLERY SELECTED PIC========================================================== -->
+    <!-- ================================================================================== -->
+
+    <style name="adapter_collage_gallery_selected_pic_outer">
+        <item name="android:layout_width">@dimen/adapter_collage_gallery_selected_pic_outer_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:gravity">top</item>
+        <item name="android:padding">@dimen/adapter_collage_gallery_selected_pic_outer_padding</item>
+    </style>
+
+    <style name="adapter_collage_gallery_selected_pic_image_view_thumb">
+        <item name="android:layout_width">@dimen/adapter_collage_gallery_selected_pic_image_pic_dim</item>
+        <item name="android:layout_height">@dimen/adapter_collage_gallery_selected_pic_image_pic_dim</item>
+    </style>
+
+    <style name="adapter_collage_gallery_selected_pic_view_cover">
+        <item name="android:layout_width">@dimen/adapter_collage_gallery_selected_pic_image_pic_dim</item>
+        <item name="android:layout_height">@dimen/adapter_collage_gallery_selected_pic_image_pic_dim</item>
+        <item name="android:background">@drawable/pic_bg</item>
+    </style>
+
+    <style name="adapter_collage_gallery_selected_pic_image_view_cross">
+        <item name="android:layout_width">@dimen/adapter_collage_gallery_selected_pic_image_cross_dim</item>
+        <item name="android:layout_height">@dimen/adapter_collage_gallery_selected_pic_image_cross_dim</item>
+        <item name="android:src">@drawable/cross</item>
+        <item name="android:padding">@dimen/adapter_collage_gallery_selected_pic_image_cross_dim_padding</item>
+        <item name="android:layout_marginLeft">@dimen/adapter_collage_gallery_selected_pic_image_cross_margin</item>
+    </style>
+
+
+    <!-- ================================================================================== -->
+    <!-- ADAPTER COLLAGE OPTION ========================================================== -->
+    <!-- ================================================================================== -->
+
+    <style name="adapter_collage_option_outer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:padding">@dimen/adapter_collage_option_outer_spacing</item>
+    </style>
+
+    <style name="adapter_collage_option_image_view_thumb">
+        <item name="android:layout_width">@dimen/adapter_collage_option_image_pic_dim</item>
+        <item name="android:layout_height">@dimen/adapter_collage_option_image_pic_dim</item>
+    </style>
+
+    <!--<style name="adapter_collage_option_view_cover">-->
+        <!--<item name="android:layout_width">@dimen/adapter_collage_option_image_pic_dim</item>-->
+        <!--<item name="android:layout_height">@dimen/adapter_collage_option_image_pic_dim</item>-->
+        <!--<item name="android:background">@drawable/pic_bg</item>-->
+    <!--</style>-->
+</resources>

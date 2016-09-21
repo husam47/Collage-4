@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/dialog_collage_gallery_outer"
+    android:orientation="vertical">
+
+    <GridView
+        android:id="@+id/dialog_collage_gallery_gridView"
+        style="@style/dialog_collage_gallery_grid_view"/>
+
+    <TextView
+        android:id="@+id/dialog_collage_gallery_textView_num_of_pic"
+        style="@style/dialog_collage_gallery_text_view"/>
+
+    <com.themkrworld.collage.ui.custom.MKRHorizontalListView
+        android:id="@+id/dialog_collage_gallery_listView"
+        style="@style/dialog_collage_gallery_hor_list_view"/>
+
+</LinearLayout>

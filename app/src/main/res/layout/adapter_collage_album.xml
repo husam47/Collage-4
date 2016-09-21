@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/adapter_collage_album_outer">
+
+    <com.themkrworld.collage.ui.custom.ThumbImageView
+        android:id="@+id/adapter_collage_album_imageView_pic"
+        style="@style/adapter_collage_album_image_view_thumb"/>
+
+    <View
+        style="@style/adapter_collage_album_view_cover"/>
+
+</RelativeLayout>

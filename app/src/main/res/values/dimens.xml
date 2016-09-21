@@ -1,0 +1,68 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <!-- ====================================================================================================== -->
+    <!-- ====================================================================================================== -->
+    <!-- ====================================================================================================== -->
+    <!-- GLOBAL ============================================================================================= -->
+    <!-- ====================================================================================================== -->
+    <!-- ====================================================================================================== -->
+    <!-- ====================================================================================================== -->
+    <dimen name="gallery_pic_dim">@dimen/mkrdp_23</dimen>
+    <dimen name="gallery_pic_outer_padding">@dimen/mkrdp_1</dimen>
+
+
+    <!-- ====================================================================================================== -->
+    <!-- FRAGMENT ============================================================================================= -->
+    <!-- ====================================================================================================== -->
+
+    <!-- FRAGMENT COLLAGE HOME -->
+    <dimen name="fragment_collage_gallery_image_view_app_icon_dim">@dimen/mkrdp_100</dimen>
+    <dimen name="fragment_collage_gallery_image_view_app_icon_margin_top">@dimen/mkrdp_2</dimen>
+    <dimen name="fragment_collage_gallery_layout_option_height">@dimen/mkrdp_25</dimen>
+    <dimen name="fragment_collage_gallery_layout_option_width">@dimen/mkrdp_40</dimen>
+    <dimen name="fragment_collage_gallery_image_view_option_padding">@dimen/mkrdp_1</dimen>
+    <dimen name="fragment_collage_gallery_text_view_option_size">@dimen/mkrdp_5.50</dimen>
+
+    <!-- FRAGMENT COLLAGE GRID LIST -->
+    <dimen name="fragment_collage_list_hor_text_view_size">@dimen/mkrdp_4</dimen>
+    <dimen name="fragment_collage_list_hor_text_view_padding_hor">@dimen/mkrdp_5</dimen>
+    <dimen name="fragment_collage_list_hor_text_view_padding_ver">@dimen/mkrdp_1</dimen>
+
+    <!-- ====================================================================================================== -->
+    <!-- ADAPTER ============================================================================================== -->
+    <!-- ====================================================================================================== -->
+
+    <!-- ADAPTER COLLAGE GALLERY -->
+    <dimen name="adapter_collage_gallery_image_pic_dim">@dimen/gallery_pic_dim</dimen>
+    <dimen name="adapter_collage_gallery_outer_spacing">@dimen/gallery_pic_outer_padding</dimen>
+    <dimen name="adapter_collage_gallery_text_size">@dimen/mkrdp_3</dimen>
+
+    <!-- ADAPTER COLLAGE ALBUM -->
+    <dimen name="adapter_collage_album_image_pic_dim">@dimen/gallery_pic_dim</dimen>
+    <dimen name="adapter_collage_album_outer_spacing">@dimen/gallery_pic_outer_padding</dimen>
+
+    <!-- ADAPTER COLLAGE GALLERY SELECTED PIC -->
+    <dimen name="adapter_collage_gallery_selected_pic_outer_width">@dimen/mkrdp_25</dimen>
+    <dimen name="adapter_collage_gallery_selected_pic_image_pic_dim">@dimen/gallery_pic_dim</dimen>
+    <dimen name="adapter_collage_gallery_selected_pic_image_cross_dim">@dimen/mkrdp_6</dimen>
+    <dimen name="adapter_collage_gallery_selected_pic_image_cross_dim_padding">@dimen/mkrdp_1</dimen>
+    <dimen name="adapter_collage_gallery_selected_pic_outer_padding">@dimen/mkrdp_1</dimen>
+    <dimen name="adapter_collage_gallery_selected_pic_image_cross_margin">@dimen/mkrdp_n_6</dimen>
+
+    <!-- ADAPTER COLLAGE OPTION -->
+    <dimen name="adapter_collage_option_image_pic_dim">@dimen/gallery_pic_dim</dimen>
+    <dimen name="adapter_collage_option_outer_spacing">@dimen/gallery_pic_outer_padding</dimen>
+
+
+    <!-- ====================================================================================================== -->
+    <!-- DIALOG ============================================================================================= -->
+    <!-- ====================================================================================================== -->
+
+    <!-- DIALOG COLLAGE GALLERY -->
+    <dimen name="dialog_collage_gallery_hor_list_spacing">@dimen/mkrdp_3</dimen>
+    <dimen name="dialog_collage_gallery_hor_list_view_height">@dimen/mkrdp_25</dimen>
+    <dimen name="dialog_collage_gallery_hor_text_view_size">@dimen/mkrdp_3</dimen>
+    <dimen name="dialog_collage_gallery_hor_text_view_padding_hor">@dimen/mkrdp_5</dimen>
+    <dimen name="dialog_collage_gallery_hor_text_view_padding_ver">@dimen/mkrdp_1</dimen>
+
+</resources>

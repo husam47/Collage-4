@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/adapter_collage_gallery_selected_pic_outer"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.themkrworld.collage.ui.custom.ThumbImageView
+            android:id="@+id/adapter_collage_gallery_selected_pic_imageView_pic"
+            style="@style/adapter_collage_gallery_selected_pic_image_view_thumb"/>
+
+        <View
+            style="@style/adapter_collage_gallery_selected_pic_view_cover"/>
+    </FrameLayout>
+
+    <ImageView
+        style="@style/adapter_collage_gallery_selected_pic_image_view_cross"/>
+</LinearLayout>

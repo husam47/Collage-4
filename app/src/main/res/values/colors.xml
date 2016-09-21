@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="color_orange">#ff8024</color>
+    <color name="hor_list_view_back_1">#020202</color>
+    <color name="hor_list_view_back_2">#2e2d2d</color>
+    <color name="dialog_collage_gallery_text_back">#505050</color>
+    <color name="fragment_collage_list_text_back">#505050</color>
+</resources>
