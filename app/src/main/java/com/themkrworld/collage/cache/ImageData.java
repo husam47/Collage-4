@@ -12,7 +12,6 @@ public class ImageData implements Constants {
     private ImageOrientation mOrientation = ImageOrientation.NONE;
     private MKREffect.Effect mEffect = MKREffect.Effect.NONE;
     private ImageType mType = ImageType.ORIGINAL_SIZE;
-    private CropImageData mCropImageData;
 
     /**
      * Constructor Complete
@@ -22,9 +21,8 @@ public class ImageData implements Constants {
      * @param source        Source of the Image, Frome where this Image is fetched
      * @param orientation   Orientation of the image
      * @param effect        Effect Apply on the Image
-     * @param cropImageData Crop Image Data
      */
-    public ImageData(String key, ImageType type, ImageSource source, ImageOrientation orientation, MKREffect.Effect effect, CropImageData cropImageData) {
+    public ImageData(String key, ImageType type, ImageSource source, ImageOrientation orientation, MKREffect.Effect effect) {
         mKey = key;
         mType = type;
         mSource = source;
@@ -34,7 +32,6 @@ public class ImageData implements Constants {
         if ((mEffect = effect) == null) {
             mEffect = MKREffect.Effect.NONE;
         }
-        mCropImageData = cropImageData;
     }
 
     /**
@@ -45,7 +42,7 @@ public class ImageData implements Constants {
      * @param source Source of the Image, Frome where this Image is fetched
      */
     public ImageData(String key, ImageType type, ImageSource source) {
-        this(key, type, source, null, null, null);
+        this(key, type, source, null, null);
     }
 
     @Override
@@ -72,12 +69,6 @@ public class ImageData implements Constants {
             if (!mEffect.equals(imageData.mEffect)) {
                 return false;
             }
-            // CHECK FOR IMAGE CROP DATA
-            if (mCropImageData != null && imageData.mCropImageData != null) {
-                if (!(mCropImageData.equals(imageData.mCropImageData))) {
-                    return false;
-                }
-            }
             return true;
         }
         return false;
@@ -91,15 +82,6 @@ public class ImageData implements Constants {
     // ====================================================================================================
     // GETTERS
     // ====================================================================================================
-
-    /**
-     * Method to get the Crop Image Data
-     *
-     * @return
-     */
-    public CropImageData getCropImageData() {
-        return mCropImageData;
-    }
 
     /**
      * Method to get the Effect Applied this image
@@ -170,91 +152,5 @@ public class ImageData implements Constants {
      */
     public enum ImageType {
         ORIGINAL_SIZE, THUMBNIAL, COLLAGE
-    }
-
-    /**
-     * Class to hold the data of a Cropart who shap is cropped from the Image
-     */
-    public class CropImageData {
-        private ImageData mCropImageData;
-        private float mCropImageDataLeft, mCropImageDataTop, mCropImageDataRight, mCropImageDataBottom;
-
-        public CropImageData(ImageData cropImageData, float CropImageDataLeft, float CropImageDataTop, float CropImageDataRight, float CropImageDataBottom) {
-            mCropImageData = cropImageData;
-            mCropImageDataLeft = CropImageDataLeft;
-            mCropImageDataRight = CropImageDataRight;
-            mCropImageDataTop = CropImageDataTop;
-            mCropImageDataBottom = CropImageDataBottom;
-        }
-
-        /**
-         * Method to get the bottom limit of Crop image in Original Image
-         *
-         * @return
-         */
-        public float getCropImageDataBottom() {
-            return mCropImageDataBottom;
-        }
-
-        /**
-         * Method to get the left limit of Crop image in Original Image
-         *
-         * @return
-         */
-        public float getCropImageDataLeft() {
-            return mCropImageDataLeft;
-        }
-
-        /**
-         * Method to get the right limit of Crop image in Original Image
-         *
-         * @return
-         */
-        public float getCropImageDataRight() {
-            return mCropImageDataRight;
-        }
-
-        /**
-         * Method to get the top limit of Crop image in Original Image
-         *
-         * @return
-         */
-        public float getCropImageDataTop() {
-            return mCropImageDataTop;
-        }
-
-        /**
-         * Method to get the Image Data of the Crop Image
-         *
-         * @return
-         */
-        public ImageData getCropImageData() {
-            return mCropImageData;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            if (obj instanceof CropImageData) {
-                CropImageData cropImageData = (CropImageData) obj;
-                // CHECK FOR CROP IMAGE DATA
-                if (!mCropImageData.equals(cropImageData.mCropImageData)) {
-                    return false;
-                }
-                // CHECK FOR CROP LEFT INDEX
-                if (mCropImageDataLeft != cropImageData.mCropImageDataLeft) {
-                    return false;
-                }
-                // CHECK FOR CROP TOP INDEX
-                if (mCropImageDataTop != cropImageData.mCropImageDataTop) {
-                    return false;
-                }
-                // CHECK FOR CROP RIGHT INDEX
-                if (mCropImageDataRight != cropImageData.mCropImageDataRight) {
-                    return false;
-                }
-                return true;
-            }
-            return false;
-        }
     }
 }

@@ -61,6 +61,9 @@
     <!-- DIALOG COLLAGE GALLERY -->
     <dimen name="dialog_collage_gallery_hor_list_spacing">@dimen/mkrdp_3</dimen>
     <dimen name="dialog_collage_gallery_hor_list_view_height">@dimen/mkrdp_25</dimen>
+    <dimen name="dialog_collage_gallery_image_view_done_width">@dimen/mkrdp_15</dimen>
+    <dimen name="dialog_collage_gallery_image_view_done_height">@dimen/mkrdp_25</dimen>
+    <dimen name="dialog_collage_gallery_image_view_done_padding">@dimen/mkrdp_2</dimen>
     <dimen name="dialog_collage_gallery_hor_text_view_size">@dimen/mkrdp_3</dimen>
     <dimen name="dialog_collage_gallery_hor_text_view_padding_hor">@dimen/mkrdp_5</dimen>
     <dimen name="dialog_collage_gallery_hor_text_view_padding_ver">@dimen/mkrdp_1</dimen>

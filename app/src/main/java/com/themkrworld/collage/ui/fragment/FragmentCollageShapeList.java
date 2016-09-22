@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
@@ -24,8 +25,9 @@ import java.util.Vector;
 /**
  * Created by delhivery on 13/9/16.
  */
-public class FragmentCollageShapeList extends Fragment implements OnBackPressedListener {
+public class FragmentCollageShapeList extends Fragment implements OnBackPressedListener, AdapterView.OnItemClickListener {
     private static final String TAG = AppConfig.BASE_TAG + ".FragmentCollageShapeList";
+    private AdapterCollageOption mAdapterCollageOption;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,7 +41,9 @@ public class FragmentCollageShapeList extends Fragment implements OnBackPressedL
         Tracer.debug(TAG, "onViewCreated()");
         ((TextView) parentView.findViewById(R.id.fragment_collage_list_textView)).setText("Select a Shape to create collage");
         Vector<CollageOptionInfo> gridCollageThumbInfo = getGridCollageThumbInfo();
-        ((GridView) parentView.findViewById(R.id.fragment_collage_list_gridView)).setAdapter(new AdapterCollageOption(getActivity(), gridCollageThumbInfo));
+        GridView gridView = (GridView) parentView.findViewById(R.id.fragment_collage_list_gridView);
+        gridView.setAdapter(mAdapterCollageOption = new AdapterCollageOption(getActivity(), gridCollageThumbInfo));
+        gridView.setOnItemClickListener(this);
     }
 
     @Override
@@ -52,6 +56,14 @@ public class FragmentCollageShapeList extends Fragment implements OnBackPressedL
         return false;
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Tracer.debug(TAG, "onItemClick()");
+        if (getActivity() instanceof OnFragmentCollageShapeListListener) {
+            ((OnFragmentCollageShapeListListener) getActivity()).onFragmentCollageShapeListShowShapeCollageFragment(mAdapterCollageOption.getItem(position));
+        }
+    }
+
     /**
      * Method to get the list of all the grid collage
      *
@@ -62,7 +74,7 @@ public class FragmentCollageShapeList extends Fragment implements OnBackPressedL
         AssetManager assets = getActivity().getAssets();
         try {
             Locale locale = Locale.getDefault();
-            String preTag = Constants.ASSETS_FILE_PRE_TAG.ASSETS_SHAPE_THUMB.toUpperCase(locale);
+            String preTag = Constants.ASSETS_FILE_PRE_TAG.ASSETS_THUMB_SHAPE.toUpperCase(locale);
             String[] list = assets.list(Constants.ASSETS_PATH.ASSETS_THUMB_PATH);
             for (String folderName : list) {
                 Tracer.debug(TAG, "getGridCollageThumbInfo() " + folderName);

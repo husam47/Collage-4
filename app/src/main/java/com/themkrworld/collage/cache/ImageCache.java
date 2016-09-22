@@ -7,11 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapFactory.Options;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.PorterDuff.Mode;
-import android.graphics.PorterDuffXfermode;
 import android.util.LruCache;
 
 import com.themkrworld.collage.effect.MKREffect;
@@ -41,7 +36,7 @@ public class ImageCache {
         cache = new MKRLruCache(getMaxSize());
         mKeys = new Vector<>();
         mOptions = new Options();
-        mOptions.inPreferredConfig = Config.ARGB_8888;
+        mOptions.inPreferredConfig = Config.ARGB_4444;
         float width = mContext.getResources().getDisplayMetrics().widthPixels;
         mImageThumSize = (int) (width / 4F);
         mImageCollageSize = (int) (width / 3F);
@@ -138,35 +133,35 @@ public class ImageCache {
          */
         protected Bitmap create(ImageData key) {
             Bitmap bitmap = (key.getSource().equals(ImageData.ImageSource.ASSETS)) ? createBitmapFromAssets(key) : createBitmapFromFile(key);
-            if (key.getCropImageData() != null) {
-                ImageData.CropImageData cropImageData = key.getCropImageData();
-                int left = (int) ((float) bitmap.getWidth() * cropImageData.getCropImageDataLeft());
-                int top = (int) ((float) bitmap.getHeight() * cropImageData.getCropImageDataTop());
-                int width = (int) ((float) bitmap.getWidth() * cropImageData.getCropImageDataRight()) - left;
-                int height = (int) ((float) bitmap.getHeight() * cropImageData.getCropImageDataBottom()) - top;
-                // CREATE A SECTOR OF IMAGE
-                Bitmap bitmapImage = Bitmap.createBitmap(bitmap, left, top, width, height);
-                if (!bitmapImage.equals(bitmap)) {
-                    bitmap.recycle();
-                }
-                // BITMAP SHAPE
-                Bitmap bitmapShapeTemp = null;
-                bitmapShapeTemp = getBitmap(cropImageData.getCropImageData());
-                // CREATE SCALED IMAGE
-                Bitmap bitmapShape = Bitmap.createScaledBitmap(bitmapShapeTemp, bitmapImage.getWidth(), bitmapImage.getHeight(), true);
-                // CREATE A SHAPPED BITMAP
-                Bitmap bitmapFinal = Bitmap.createBitmap(bitmapImage.getWidth(), bitmapImage.getHeight(), Config.ARGB_8888);
-                Canvas canvas = new Canvas(bitmapFinal);
-                canvas.drawColor(Color.argb(0, 0, 0, 0));
-                Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
-                canvas.drawBitmap(bitmapImage, 0, 0, paint);
-                paint.setXfermode(new PorterDuffXfermode(Mode.DST_IN));
-                canvas.drawBitmap(bitmapShape, 0, 0, paint);
-                // RECYCLE BITMAP
-                bitmapImage.recycle();
-                bitmapShape.recycle();
-                bitmap = bitmapFinal;
-            }
+//            if (key.getCropImageData() != null) {
+//                ImageData.CropImageData cropImageData = key.getCropImageData();
+//                int left = (int) ((float) bitmap.getWidth());
+//                int top = (int) ((float) bitmap.getHeight());
+//                int width = (int) ((float) bitmap.getWidth()) - left;
+//                int height = (int) ((float) bitmap.getHeight()) - top;
+//                // CREATE A SECTOR OF IMAGE
+//                Bitmap bitmapImage = Bitmap.createBitmap(bitmap, left, top, width, height);
+//                if (!bitmapImage.equals(bitmap)) {
+//                    bitmap.recycle();
+//                }
+//                // BITMAP SHAPE
+//                Bitmap bitmapShapeTemp = null;
+//                bitmapShapeTemp = getBitmap(cropImageData.getCropImageData());
+//                // CREATE SCALED IMAGE
+//                Bitmap bitmapShape = Bitmap.createScaledBitmap(bitmapShapeTemp, bitmapImage.getWidth(), bitmapImage.getHeight(), true);
+//                // CREATE A SHAPPED BITMAP
+//                Bitmap bitmapFinal = Bitmap.createBitmap(bitmapImage.getWidth(), bitmapImage.getHeight(), Config.ARGB_8888);
+//                Canvas canvas = new Canvas(bitmapFinal);
+//                canvas.drawColor(Color.argb(0, 0, 0, 0));
+//                Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
+//                canvas.drawBitmap(bitmapImage, 0, 0, paint);
+//                paint.setXfermode(new PorterDuffXfermode(Mode.DST_IN));
+//                canvas.drawBitmap(bitmapShape, 0, 0, paint);
+//                // RECYCLE BITMAP
+//                bitmapImage.recycle();
+//                bitmapShape.recycle();
+//                bitmap = bitmapFinal;
+//            }
 
             if (key.getEffect() != MKREffect.Effect.NONE) {
 //                Bitmap bitmapNew = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());

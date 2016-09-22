@@ -25,7 +25,7 @@ import java.util.Vector;
 /**
  * Created by delhivery on 13/9/16.
  */
-public class DialogGallery extends AlertDialog implements AdapterView.OnItemClickListener {
+public class DialogGallery extends AlertDialog implements AdapterView.OnItemClickListener, View.OnClickListener {
     private static final String TAG = AppConfig.BASE_TAG + ".DialogGallery";
     private static final int MAX_PIC_COUNT = 8;
     private Gallery mGallery;
@@ -33,6 +33,8 @@ public class DialogGallery extends AlertDialog implements AdapterView.OnItemClic
     private AdapterGallery mAdapterGallery;
     private AdapterAlbum mAdapterAlbum;
     private AdapterGallerySelectedPic mAdapterGallerySelectedPic;
+    private OnDialogGalleryListener mOnDialogGalleryListener;
+    private boolean mIsFreestyle, mIsReplaceExistingImage;
 
     /**
      * Constructor
@@ -40,11 +42,17 @@ public class DialogGallery extends AlertDialog implements AdapterView.OnItemClic
      * @param context
      * @param gallery
      * @param selecetedPicCount
+     * @param onDialogGalleryListener
+     * @param isReplaceExistingImage  TRUE if user want to replace the existing image
      */
-    public DialogGallery(Context context, Gallery gallery, int selecetedPicCount) {
+    public DialogGallery(Context context, Gallery gallery, int selecetedPicCount, OnDialogGalleryListener onDialogGalleryListener, boolean isReplaceExistingImage) {
         super(context);
         mGallery = gallery;
         mSelecetedPicCount = selecetedPicCount;
+        mOnDialogGalleryListener = onDialogGalleryListener;
+        mIsFreestyle = false;
+        mIsReplaceExistingImage = isReplaceExistingImage;
+        mIsFreestyle = false;
     }
 
     /**
@@ -52,9 +60,23 @@ public class DialogGallery extends AlertDialog implements AdapterView.OnItemClic
      *
      * @param context
      * @param gallery
+     * @param selecetedPicCount
+     * @param onDialogGalleryListener
      */
-    public DialogGallery(Context context, Gallery gallery) {
-        this(context, gallery, MAX_PIC_COUNT);
+    public DialogGallery(Context context, Gallery gallery, int selecetedPicCount, OnDialogGalleryListener onDialogGalleryListener) {
+        this(context, gallery, MAX_PIC_COUNT, onDialogGalleryListener, false);
+    }
+
+    /**
+     * Constructor
+     *
+     * @param context
+     * @param gallery
+     * @param onDialogGalleryListener
+     */
+    public DialogGallery(Context context, Gallery gallery, OnDialogGalleryListener onDialogGalleryListener) {
+        this(context, gallery, MAX_PIC_COUNT, onDialogGalleryListener);
+        mIsFreestyle = true;
     }
 
     @Override
@@ -80,6 +102,20 @@ public class DialogGallery extends AlertDialog implements AdapterView.OnItemClic
         listView.setAdapter(mAdapterGallerySelectedPic = new AdapterGallerySelectedPic(getContext()));
         showGalleryView();
         setSelcetedImageData(null);
+        findViewById(R.id.dialog_collage_gallery_imageView_done).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        Tracer.debug(TAG, "onClick()");
+        switch (view.getId()) {
+            case R.id.dialog_collage_gallery_imageView_done:
+                if (mOnDialogGalleryListener != null) {
+                    mOnDialogGalleryListener.onDialogGalleryImageSelected(mAdapterGallerySelectedPic.getImageDataList());
+                }
+                super.dismiss();
+                break;
+        }
     }
 
     @Override
@@ -90,7 +126,9 @@ public class DialogGallery extends AlertDialog implements AdapterView.OnItemClic
             showGalleryView();
             return;
         }
-        super.dismiss();
+        if (mSelecetedPicCount == 1 && mIsReplaceExistingImage) {
+            super.dismiss();
+        }
     }
 
     @Override
@@ -133,7 +171,7 @@ public class DialogGallery extends AlertDialog implements AdapterView.OnItemClic
         Tracer.debug(TAG, "setSelcetedImageData()");
         switch (mSelecetedPicCount) {
             case 1:
-                ((TextView) findViewById(R.id.dialog_collage_gallery_textView_num_of_pic)).setText("Select single image from gallery");
+                ((TextView) findViewById(R.id.dialog_collage_gallery_textView_num_of_pic)).setText("Select a image from gallery");
                 break;
             default:
                 addSelcetedImageData(imageData, mSelecetedPicCount);
@@ -147,13 +185,21 @@ public class DialogGallery extends AlertDialog implements AdapterView.OnItemClic
      */
     private void addSelcetedImageData(ImageData imageData, int maxPicCount) {
         Tracer.debug(TAG, "addSelcetedImageData()");
-        if (mAdapterGallerySelectedPic.getCount() >= maxPicCount) {
-            ((TextView) findViewById(R.id.dialog_collage_gallery_textView_num_of_pic)).setText(mAdapterGallerySelectedPic.getCount() + "/" + maxPicCount + " MAX LIMIT REACHED");
+        if (imageData != null && mAdapterGallerySelectedPic.getCount() < maxPicCount) {
+            mAdapterGallerySelectedPic.addImageData(imageData);
+        }
+        ((TextView) findViewById(R.id.dialog_collage_gallery_textView_num_of_pic)).setText("Selecte " + mAdapterGallerySelectedPic.getCount() + "/" + maxPicCount + " images from gallery");
+        updateDoneButtonVisibility();
+    }
+
+    /**
+     * Method to set the visibility of the done button
+     */
+    private void updateDoneButtonVisibility() {
+        if (mIsFreestyle) {
+            findViewById(R.id.dialog_collage_gallery_imageView_done).setVisibility(mAdapterGallerySelectedPic.getCount() > 0 ? View.VISIBLE : View.GONE);
         } else {
-            if (imageData != null) {
-                mAdapterGallerySelectedPic.addImageData(imageData);
-            }
-            ((TextView) findViewById(R.id.dialog_collage_gallery_textView_num_of_pic)).setText(mAdapterGallerySelectedPic.getCount() + "/" + maxPicCount);
+            findViewById(R.id.dialog_collage_gallery_imageView_done).setVisibility(mAdapterGallerySelectedPic.getCount() == mSelecetedPicCount ? View.VISIBLE : View.GONE);
         }
     }
 
@@ -161,13 +207,6 @@ public class DialogGallery extends AlertDialog implements AdapterView.OnItemClic
      * Callback to return the
      */
     public interface OnDialogGalleryListener {
-        /**
-         * Callback to notify that user select the Pic
-         *
-         * @param imageData
-         */
-        public void onDialogGalleryImageSelected(ImageData imageData);
-
         /**
          * Callback to notify that user select the Pic
          *

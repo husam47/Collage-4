@@ -12,8 +12,17 @@
         android:id="@+id/dialog_collage_gallery_textView_num_of_pic"
         style="@style/dialog_collage_gallery_text_view"/>
 
-    <com.themkrworld.collage.ui.custom.MKRHorizontalListView
-        android:id="@+id/dialog_collage_gallery_listView"
-        style="@style/dialog_collage_gallery_hor_list_view"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.themkrworld.collage.ui.custom.MKRHorizontalListView
+            android:id="@+id/dialog_collage_gallery_listView"
+            style="@style/dialog_collage_gallery_hor_list_view"/>
+
+        <ImageView
+            android:id="@+id/dialog_collage_gallery_imageView_done"
+            style="@style/dialog_collage_gallery_image_view_done"/>
+    </RelativeLayout>
 
 </LinearLayout>

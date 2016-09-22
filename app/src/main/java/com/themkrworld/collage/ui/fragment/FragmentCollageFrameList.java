@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
@@ -23,8 +24,9 @@ import java.util.Vector;
 /**
  * Created by delhivery on 13/9/16.
  */
-public class FragmentCollageFrameList extends Fragment implements OnBackPressedListener {
+public class FragmentCollageFrameList extends Fragment implements OnBackPressedListener, AdapterView.OnItemClickListener {
     private static final String TAG = AppConfig.BASE_TAG + ".FragmentCollageFrameList";
+    private AdapterCollageOption mAdapterCollageOption;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,7 +40,9 @@ public class FragmentCollageFrameList extends Fragment implements OnBackPressedL
         Tracer.debug(TAG, "onViewCreated()");
         ((TextView) parentView.findViewById(R.id.fragment_collage_list_textView)).setText("Select a Frame to create collage");
         Vector<CollageOptionInfo> gridCollageThumbInfo = getGridCollageThumbInfo();
-        ((GridView) parentView.findViewById(R.id.fragment_collage_list_gridView)).setAdapter(new AdapterCollageOption(getActivity(), gridCollageThumbInfo));
+        GridView gridView = (GridView) parentView.findViewById(R.id.fragment_collage_list_gridView);
+        gridView.setAdapter(mAdapterCollageOption = new AdapterCollageOption(getActivity(), gridCollageThumbInfo));
+        gridView.setOnItemClickListener(this);
     }
 
     @Override
@@ -49,6 +53,14 @@ public class FragmentCollageFrameList extends Fragment implements OnBackPressedL
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Tracer.debug(TAG, "onItemClick()");
+        if (getActivity() instanceof OnFragmentCollageFrameListListener) {
+            ((OnFragmentCollageFrameListListener) getActivity()).onFragmentCollageFrameListShowFrameCollageFragment(mAdapterCollageOption.getItem(position));
+        }
     }
 
     /**

@@ -11,13 +11,14 @@ import com.themkrworld.collage.model.CollageOptionInfo;
 import com.themkrworld.collage.model.Gallery;
 import com.themkrworld.collage.ui.dialog.DialogGallery;
 import com.themkrworld.collage.ui.fragment.FragmentCollageFrameList;
+import com.themkrworld.collage.ui.fragment.FragmentCollageGridCollage;
 import com.themkrworld.collage.ui.fragment.FragmentCollageGridList;
 import com.themkrworld.collage.ui.fragment.FragmentCollageHome;
 import com.themkrworld.collage.ui.fragment.FragmentCollageShapeList;
 import com.themkrworld.collage.utils.AppConfig;
 import com.themkrworld.collage.utils.Tracer;
 
-public class MainActivity extends Activity implements GalleryController.OnGalleryControllerListener, FragmentCollageHome.OnFragmentCollageHomeListener, FragmentCollageFrameList.OnFragmentCollageFrameListListener, FragmentCollageGridList.OnFragmentCollageGridListListener, FragmentCollageShapeList.OnFragmentCollageShapeListListener {
+public class MainActivity extends Activity implements GalleryController.OnGalleryControllerListener, FragmentCollageHome.OnFragmentCollageHomeListener, FragmentCollageFrameList.OnFragmentCollageFrameListListener, FragmentCollageGridList.OnFragmentCollageGridListListener, FragmentCollageShapeList.OnFragmentCollageShapeListListener, FragmentCollageGridCollage.OnFragmentCollageGridCollage {
     private static final String TAG = AppConfig.BASE_TAG + ".MainActivity";
     private Gallery mGallery;
 
@@ -25,7 +26,7 @@ public class MainActivity extends Activity implements GalleryController.OnGaller
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new GalleryController(this, this).initialieGallery();
+//        new GalleryController(this, this).initialieGallery();
     }
 
     @Override
@@ -42,7 +43,9 @@ public class MainActivity extends Activity implements GalleryController.OnGaller
     }
 
     @Override
-    public void onGalleryControllerGalleryInitialized(Gallery gallery) {
+    public void onGalleryControllerGalleryInitialized
+            (Gallery
+                     gallery) {
         Tracer.debug(TAG, "onGalleryControllerGalleryInitialized()");
         mGallery = gallery;
         showHomeFragment();
@@ -53,24 +56,28 @@ public class MainActivity extends Activity implements GalleryController.OnGaller
     //============================================================================================================================
 
     @Override
-    public void onFragmentCollageHomeShowGridFragment() {
+    public void onFragmentCollageHomeShowGridFragment
+            () {
         Tracer.debug(TAG, "onFragmentCollageHomeShowGridFragment()");
         showCollageGridListFragment();
     }
 
     @Override
-    public void onFragmentCollageHomeShowFreeStyleFragment() {
+    public void onFragmentCollageHomeShowFreeStyleFragment
+            () {
         Tracer.debug(TAG, "onFragmentCollageHomeShowFreeStyleFragment()");
     }
 
     @Override
-    public void onFragmentCollageHomeShowShapeFragment() {
+    public void onFragmentCollageHomeShowShapeFragment
+            () {
         Tracer.debug(TAG, "onFragmentCollageHomeShowShapeFragment()");
         showCollageShapeListFragment();
     }
 
     @Override
-    public void onFragmentCollageHomeShowFrameFragment() {
+    public void onFragmentCollageHomeShowFrameFragment
+            () {
         Tracer.debug(TAG, "onFragmentCollageHomeShowFrameFragment()");
         showCollageFrameListFragment();
     }
@@ -80,13 +87,16 @@ public class MainActivity extends Activity implements GalleryController.OnGaller
     //============================================================================================================================
 
     @Override
-    public void onFragmentCollageFrameListShowHomeFragment() {
+    public void onFragmentCollageFrameListShowHomeFragment
+            () {
         Tracer.debug(TAG, "onFragmentCollageFrameListShowHomeFragment()");
         showHomeFragment();
     }
 
     @Override
-    public void onFragmentCollageFrameListShowFrameCollageFragment(CollageOptionInfo collageOptionInfo) {
+    public void onFragmentCollageFrameListShowFrameCollageFragment
+            (CollageOptionInfo
+                     collageOptionInfo) {
         Tracer.debug(TAG, "onFragmentCollageFrameListShowFrameCollageFragment()");
     }
 
@@ -95,14 +105,18 @@ public class MainActivity extends Activity implements GalleryController.OnGaller
     //============================================================================================================================
 
     @Override
-    public void onFragmentCollageGridListShowHomeFragment() {
+    public void onFragmentCollageGridListShowHomeFragment
+            () {
         Tracer.debug(TAG, "onFragmentCollageGridListShowHomeFragment()");
         showHomeFragment();
     }
 
     @Override
-    public void onFragmentCollageGridListShowGridCollageFragment(CollageOptionInfo collageOptionInfo) {
+    public void onFragmentCollageGridListShowGridCollageFragment
+            (CollageOptionInfo
+                     collageOptionInfo) {
         Tracer.debug(TAG, "onFragmentCollageGridListShowGridCollageFragment()");
+        showGridCollageFragment(collageOptionInfo.getImageName(), collageOptionInfo.getPicCount());
     }
 
     //============================================================================================================================
@@ -110,14 +124,28 @@ public class MainActivity extends Activity implements GalleryController.OnGaller
     //============================================================================================================================
 
     @Override
-    public void onFragmentCollageShapeListShowHomeFragment() {
+    public void onFragmentCollageShapeListShowHomeFragment
+            () {
         Tracer.debug(TAG, "onFragmentCollageShapeListShowHomeFragment()");
         showHomeFragment();
     }
 
     @Override
-    public void onFragmentCollageShapeListShowShapeCollageFragment(CollageOptionInfo collageOptionInfo) {
+    public void onFragmentCollageShapeListShowShapeCollageFragment
+            (CollageOptionInfo
+                     collageOptionInfo) {
         Tracer.debug(TAG, "onFragmentCollageShapeListShowShapeCollageFragment()");
+    }
+
+    //============================================================================================================================
+    //FRAGMENT COLLAGE GRID COLLAGE===============================================================================================
+    //============================================================================================================================
+
+    @Override
+    public Gallery onFragmentCollageGridCollageGetGallery
+            () {
+        Tracer.debug(TAG, "onFragmentCollageGridCollageGetGallery()");
+        return mGallery;
     }
 
     //============================================================================================================================
@@ -130,6 +158,7 @@ public class MainActivity extends Activity implements GalleryController.OnGaller
     /**
      * Method to show the home fragment
      */
+
     private void showHomeFragment() {
         Tracer.debug(TAG, "showHomeFragment()");
         getFragmentManager().beginTransaction().replace(R.id.activity_collage_container, new FragmentCollageHome()).commit();
@@ -160,6 +189,21 @@ public class MainActivity extends Activity implements GalleryController.OnGaller
     }
 
     /**
+     * Method to show the Grid Collage Fragment
+     *
+     * @param imageName
+     * @param picCount
+     */
+    private void showGridCollageFragment(String imageName, int picCount) {
+        Fragment fragment = new FragmentCollageGridCollage();
+        Bundle bundle = new Bundle();
+        bundle.putString(FragmentCollageGridCollage.EXTRA_THUMB_NAME, imageName);
+        bundle.putInt(FragmentCollageGridCollage.EXTRA_NUMBER_OF_PIC, picCount);
+        fragment.setArguments(bundle);
+        getFragmentManager().beginTransaction().replace(R.id.activity_collage_container, fragment).commit();
+    }
+
+    /**
      * Method to show the Gallery Dialog
      *
      * @param onDialogGalleryListener Callback to listen the Event occur inside gallery view
@@ -167,7 +211,7 @@ public class MainActivity extends Activity implements GalleryController.OnGaller
      */
     private void showDialogGallery(DialogGallery.OnDialogGalleryListener onDialogGalleryListener, int numberOfPicSelected) {
         Tracer.debug(TAG, "showDialogGallery()");
-        new DialogGallery(this, mGallery, numberOfPicSelected).show();
+        new DialogGallery(this, mGallery, numberOfPicSelected, onDialogGalleryListener).show();
     }
 
     /**
@@ -177,6 +221,6 @@ public class MainActivity extends Activity implements GalleryController.OnGaller
      */
     private void showDialogGallery(DialogGallery.OnDialogGalleryListener onDialogGalleryListener) {
         Tracer.debug(TAG, "showDialogGallery()");
-        new DialogGallery(this, mGallery).show();
+        new DialogGallery(this, mGallery, onDialogGalleryListener).show();
     }
 }

@@ -44,6 +44,15 @@ public class AdapterGallerySelectedPic extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    /**
+     * Method to get the list of selected pic
+     *
+     * @return
+     */
+    public Vector<ImageData> getImageDataList() {
+        return mImageDataList;
+    }
+
     @Override
     public int getCount() {
         return mImageDataList.size();

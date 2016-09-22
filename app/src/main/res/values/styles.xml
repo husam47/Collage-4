@@ -126,6 +126,16 @@
         <item name="android:cacheColorHint">@android:color/transparent</item>
     </style>
 
+    <style name="dialog_collage_gallery_image_view_done">
+        <item name="android:layout_width">@dimen/dialog_collage_gallery_image_view_done_width</item>
+        <item name="android:layout_height">@dimen/dialog_collage_gallery_image_view_done_height</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:padding">@dimen/dialog_collage_gallery_image_view_done_padding</item>
+        <item name="android:src">@drawable/icon_done</item>
+    </style>
+
+
     <style name="dialog_collage_gallery_text_view">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -247,8 +257,8 @@
     </style>
 
     <!--<style name="adapter_collage_option_view_cover">-->
-        <!--<item name="android:layout_width">@dimen/adapter_collage_option_image_pic_dim</item>-->
-        <!--<item name="android:layout_height">@dimen/adapter_collage_option_image_pic_dim</item>-->
-        <!--<item name="android:background">@drawable/pic_bg</item>-->
+    <!--<item name="android:layout_width">@dimen/adapter_collage_option_image_pic_dim</item>-->
+    <!--<item name="android:layout_height">@dimen/adapter_collage_option_image_pic_dim</item>-->
+    <!--<item name="android:background">@drawable/pic_bg</item>-->
     <!--</style>-->
 </resources>
